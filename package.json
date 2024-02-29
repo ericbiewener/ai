@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node --loader ts-node/esm -r dotenv/config",
+    "start": "tsx -r dotenv/config",
     "format": "prettier --write --no-error-on-unmatched-pattern **/*.{ts,js,json,md}, *.{ts,js,json,md}",
     "prepare": "husky"
   },
@@ -23,7 +23,7 @@
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "3.2.4",
-    "ts-node": "10.9.2",
+    "tsx": "4.7.1",
     "typescript": "5.3.3"
   }
 }
