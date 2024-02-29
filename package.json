@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --loader ts-node/esm -r dotenv/config",
     "format": "prettier --write --no-error-on-unmatched-pattern **/*.{ts,js,json,md}, *.{ts,js,json,md}",
     "prepare": "husky"
   },
@@ -14,9 +14,11 @@
     "*.{ts,js,json,md}": "prettier --write"
   },
   "dependencies": {
+    "dotenv": "16.4.5",
     "openai": "4.28.4"
   },
   "devDependencies": {
+    "@types/node": "20.10.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
