@@ -14,21 +14,21 @@ type StreamParseOptions = {
   limit?: number;
 };
 
-export const streamParseCsv = async (
+export const streamParseCsv = async <V extends unknown[]>(
   file: string,
   { includeLine, limit }: StreamParseOptions = {},
 ) => {
-  const records: string[] = [];
+  const records: V[] = [];
 
-  const { rl, work } = readLines(file, (line) => {
-    if (limit && records.length >= limit) {
-      rl.close();
-    } else if (!includeLine || includeLine(line)) {
-      records.push(parse(line));
-    }
-  });
-
-  await work;
+  await readLines(
+    file,
+    (line) => {
+      if (!includeLine || includeLine(line)) {
+        records.push(...parse(line));
+      }
+    },
+    () => !limit || records.length < limit,
+  );
 
   return records;
 };
