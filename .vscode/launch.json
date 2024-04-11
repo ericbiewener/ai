@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "pnpm start ${relativeFile}",
+      "command": "pnpm start ${relativeFile}; exit",
       "name": "Run npm start",
       "request": "launch",
       "type": "node-terminal"
